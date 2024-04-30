@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>2048 | By ruzhila.cn</title>
+</head>
+
+<body>
+    <style>
+        #game {
+            margin: 0 auto;
+            display: block;
+            background: #faf8ef;
+            border: 1px solid #bfbfbf;
+        }
+
+        .gameover {
+            text-align: center;
+            font-size: 40px;
+            color: #776e65;
+            display: none;
+        }
+
+        .restart {
+            font-size: 20px;
+            color: blueviolet;
+        }
+    </style>
+    <div>
+        <div class="gameover">
+            <span>Game over</span>
+            <span class="restart" onclick="restart()">restart</span>
+        </div>
+        <canvas id="game" width="480" height="480"></canvas>
+    </div>
+    <script src="2048.js"></script>
+    <script>
+        let game = new Game(document.getElementById('game').getContext('2d'));
+        game.start();
+        function restart() {
+            document.getElementsByClassName('gameover')[0].style.display = 'none';
+            game.start();
+        }
+    </script>
+</body>
